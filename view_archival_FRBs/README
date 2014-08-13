@@ -1,0 +1,26 @@
+Evan Keane
+14/08/2014
+
+A script which will grab the FRBs from the raw data files (provided on
+Google Drive here:
+https://drive.google.com/folderview?id=0B0mwxKag3K-naUdXSHVRNElyZFk&usp=sharing
+NB This directory will be made public shortly)
+
+Simply replace the directories where you have things and run:
+
+csh script2.csh
+
+You could then look at the pulses by doing (for example):
+
+psrplot -p F -j "F 8, B 500" *.ar     [ with sweep ]
+psrplot -p F -j "D, F 8, B 500" *.ar  [ sweep removed ]
+
+OR if you prefer to make a custom gnuplot recipe try:
+
+gnuplot
+gnuplot> set palette gray negative
+gnuplot> plot "<file>.cube" u 2:(-$1):3 with image
+
+OR if you prefer to make a custom pgplot recipe
+
+then I refuse to help you.

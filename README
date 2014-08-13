@@ -20,13 +20,15 @@ A python script to calculate the relative S/N for an incorrect DM
 
 TBD
 
-4. Script for grabbing FRBs from fil files
+4. view_archival_FRBs
 
-TBD
+A script for grabbing FRBs from fil files and making output in useful
+data formats for further analysis.
 
-5. Link to Google Drive for the raw data and various different formats
+5. archival_FRB_data.link
 
-TBD
+The URL link to the public Google Drive directory for the raw data and
+various different useful formats.
 
 6. dedisp_steps
 
@@ -47,7 +49,4 @@ TBD
 A linux version of a code that converts "scamp" data format (archival
 Parkes surveys, especially those that used the analogue filterbanks)
 to sigproc "filterbank" format.
-
-
-
 

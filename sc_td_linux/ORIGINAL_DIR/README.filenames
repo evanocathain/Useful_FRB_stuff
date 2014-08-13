@@ -1,0 +1,20 @@
+File names now receive a unique Galactic latitude grid reference for
+each pointing center at 1420 MHz. The old file names look like
+W01000101.hdr for example. The new file names look like
+W01000_0033%05911341.  Here, the format is 
+tttnnn_fffB%llllbbbs where
+
+tttnnn - Tape identifier, where nnn must be readable as an integer  
+fff    - File number on tape
+B      - Beam number/old system number
+llll   - Galactic longitude grid reference
+bbb    - Galactic latitude grid reference
+s      - System number
+
+llll is obtained by multipling the Galactic longitude by 5.3191 (beams per
+degree) bbb is obtained by multipling the Galactic latitude by 5.3191 (beams
+per degree)
+
+For non multibeam data, the file names remains as before, except for the
+possibility of 2 extra characters in the front of the tape name.
+tttnnn_fffs

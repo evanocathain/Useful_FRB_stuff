@@ -1,0 +1,117 @@
+##########################################################################
+# the standard Makefile 
+##########################################################################
+
+##########################################################################
+# the standard targets
+##########################################################################
+TARGETS := include depend libs scripts all test install clean veryclean cvsck
+
+##########################################################################
+# the standard macro definitions
+##########################################################################
+INSTALL_BINDIR := ${PSRHOME}/bin/${LOGIN_ARCH}
+INSTALL_LIBDIR := ${PSRHOME}/lib/${LOGIN_ARCH}
+INSTALL_INCDIR := ${PSRHOME}/include
+INSTALL_SHXDIR := ${PSRHOME}/csh_script
+
+BINDIR := ${LOCAL_ROOT}/bin/${LOGIN_ARCH}
+LIBDIR := ${LOCAL_ROOT}/lib/${LOGIN_ARCH}
+INCDIR := ${LOCAL_ROOT}/include
+SHXDIR := ${LOCAL_ROOT}/csh_script
+
+INCFLAGS= -I. -I${INCDIR} -I${PSRPKGS}/include \
+	-I${PSRPKGS}/${LOGIN_ARCH}/include -I/usr/local/include
+
+ifneq (${PSREXPORT},1)
+INCFLAGS += -I${INSTALL_INCDIR}
+endif
+
+LDFLAGS = -L${LIBDIR} -L${PSRPKGS}/${LOGIN_ARCH}/lib
+
+ifneq (${PSREXPORT},1)
+LDFLAGS += -L${INSTALL_LIBDIR}
+endif
+
+MDFLAGS = -D__cplusplus
+AR      = ar
+RANLIB  = ranlib
+ARFLAGS = crv
+RM    = rm -f
+AWK   = awk
+GREP  = grep
+QTMOC = moc
+MAKEDEPEND = makedepend -f 
+
+SWINBURNE_REPOSITORY = mania.physics.swin.edu.au:/psr/cvsroot
+
+##########################################################################
+# macro definitions for various "home-grown" libraries
+##########################################################################
+LTIMES = -ltimes $(LSLA) -lm
+#LARCHIVE = -larchive -ltempo++ -lpolyco -leph -lgenutil $(LFFT) $(LTIMES)
+LARCHIVE = -larchive -ltempo++ -lpolyco -leph $(LFFT) $(LTIMES)
+
+##########################################################################
+# package-specific macro definitions
+##########################################################################
+
+##########################################################################
+# MPI
+LMPI = -L/usr/local/mpi/lib -lmpich $(LSOCK)
+IMPI = -I/usr/local/mpi/include
+
+##########################################################################
+# FFTW and pulsar group wrappers
+LFFT = -lpsrfft -lrfftw -lfftw
+
+##########################################################################
+# OpenGL 3D stuff
+LO3D = -lGL $(LXMU) $(LX11)
+
+##########################################################################
+# PGPLOT, C-wrappers, Motif/PGPLOT
+LPGPLOT = -lpgplot $(LX11) $(LF77)
+LCPGPLOT= -L/raid1/pasurv/pgplot -lcpgplot $(LPGPLOT)
+LXMPGPLOT = -L/usr/local/pgplot -lXmPgplot $(LMOTIF) $(LCPGPLOT)
+
+LX11 = -lX11
+LXMU = -lXmu
+LMOTIF = -lXm -lXt
+
+##########################################################################
+# Qt Qt/Xt Qt/Motif/PGPLOT
+IQT := -I/usr/local/qt/include
+LQT := -L/usr/local/qt/lib -lqt
+LQXT = $(LQT) -lqxt
+LQXMPGPLOT = $(LQXT) $(LXMPGPLOT)
+
+##########################################################################
+# Qt OpenGL
+LQO3D = $(LQT) -lqgl $(LO3D)
+
+LENDIAN = -lendian
+LDIALOG = -ldialog
+F77LIBS = $(LF77)  # LF77 defined in architecture-dependent Makefile
+
+##########################################################################
+# GTK-- :: enabled only when environment variable is "yes"
+ifeq ($(PSRGTKMM),yes)
+GTKMM_CCFLAGS := ${shell ${PSRPKGS}/${LOGIN_ARCH}/bin/gtkmm-config --cflags}
+LGTKMM := ${shell ${PSRPKGS}/${LOGIN_ARCH}/bin/gtkmm-config --libs}
+endif
+
+##########################################################################
+# SLA LIB
+LSLA = -lsla $(LF77)
+
+##########################################################################
+# OS-specific
+##########################################################################
+
+ifeq (${strip ${LOGIN_ARCH}},)
+ERROR:=environment variable LOGIN_ARCH is not defined
+else
+include ${LOCAL_ROOT}/include/Makefile.${LOGIN_ARCH}
+endif
+

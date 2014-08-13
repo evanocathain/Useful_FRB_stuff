@@ -1,0 +1,51 @@
+Evan Keane
+13/08/2014
+
+If you do:
+
+./dedisp_steps 1.05 100 1 > tol_1.05
+./dedisp_steps 1.01 100 1 > tol_1.01
+gnuplot -persist scallop.plt
+
+you will see the relative S/N versus DM for the first few DM
+trials. The dmtol is defined by Levin (and used by Barsdell in
+heimdall) so that the effective width at trial i+1 is dmtol times the
+effective width at trial i (Levin, 2011, PhD thesis, Swinburne, p 31,
+Eq 2.2). But note that:
+
+1. S/N scales with the sqrt of the effective width
+
+2. If you wanted dm trials spaced such that something 'between' trials
+loses 100*(1 - 1/sqrt(dmtol)) percent S/N you should define the point
+between 2 DM trials as that where weff_{i+1} = dmtol*wedd_{i}. As this
+is actually defined by Levin to be value of the next trial the loss
+due to the scalloped DM coverage is _much_ less severe (or, depending
+on your point-of-view, heimdall performs too many DM trials). The loss
+in S/N is actually just as given below:
+
+dm_tol = 1.25
+100*1/sqrt(1.25) = 89.4 % 
+dm_step at DM 1000 is ~2.9
+DM=1000 between-trial relative S/N is ~97%
+
+dm_tol = 1.05
+100*1/sqrt(1.05) = 97.5 % 
+dm_step at DM 1000 is ~1.3
+DM=1000 between-trial relative S/N is ~99.5%
+
+dm_tol = 1.01
+100*1/sqrt(1.01) = 99.5 % 
+dm_step at DM 1000 is ~0.6
+DM=1000 between-trial relative S/N is ~99.9%
+
+The above is for instrinsic pulse width of 40 us. Of course the loss
+in S/N is (a bit) better if intrinsically (or scattered to) more than
+this. But if the observed width is DM smearing dominated (as it will
+be at high DM) then the above numbers are pretty good, e.g. for the
+Parkes FRBs.
+
+Some people seem to think that dmtol 1.25 means a 25% loss from one
+trial to the next, or a 100*(1-1/sqrt(1.25)% loss, but clearly it is
+not as bad as this. Even dmtol of 1.25 might be overkill, but it is
+certainly very thorough!
+

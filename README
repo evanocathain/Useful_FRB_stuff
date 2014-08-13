@@ -1,2 +1,53 @@
+Evan Keane
+
 This repository holds a collection of useful codes and scripts for
 analysis of single pulse searches and FRB data from radio telescopes.
+
+1. FAKE
+
+Can use the following to replace the existing files in a standard
+psrsoft (see http://www.pulsarastronomy.net/wiki/Software/PSRSoft)
+installation of sigproc
+
+   fake.c - conserves area under pulse + few other edits
+   help.c - fake usage message updated
+
+2. dDM_S.py
+
+A python script to calculate the relative S/N for an incorrect DM
+
+3. Script to generate the data for Figure 1
+
+TBD
+
+4. Script for grabbing FRBs from fil files
+
+TBD
+
+5. Link to Google Drive for the raw data and various different formats
+
+TBD
+
+6. dedisp_steps
+
+A code which outputs the DM steps from the algorithm of Levin 2011,
+and as used by heimdall. It also outputs info. on the scalloped DM
+response.
+
+7. cut_fil
+
+TBD
+
+8. Gnuplot plotting scripts
+
+TBD
+
+9. sc_td_linux
+
+A linux version of a code that converts "scamp" data format (archival
+Parkes surveys, especially those that used the analogue filterbanks)
+to sigproc "filterbank" format.
+
+
+
+

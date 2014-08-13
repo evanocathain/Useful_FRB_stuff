@@ -1,0 +1,2 @@
+sc_tt.OBJS := sungcc/sct_sungcc.o
+../../..//bin/sungcc/sc_tt: $(sc_tt.OBJS)

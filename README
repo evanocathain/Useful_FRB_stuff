@@ -36,9 +36,9 @@ A code which outputs the DM steps from the algorithm of Levin 2011,
 and as used by heimdall. It also outputs info. on the scalloped DM
 response.
 
-7. cut_fil
+7. destroy_gutted.link
 
-TBD
+A link to a lightweight version of destroy, a SP search code.
 
 8. sc_td_linux.link
 

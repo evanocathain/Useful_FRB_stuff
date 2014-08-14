@@ -1,2 +1,0 @@
-sc_td.OBJS := sungcc/st_init.o sungcc/st_inpar.o sungcc/st_topen.o sungcc/st_rdblk.o sungcc/st_gethdr.o sungcc/st_fopen.o sungcc/st_trans.o sungcc/st_fclose.o sungcc/sct_sungcc.o sungcc/repair_hdr.o sungcc/str_coord.o sungcc/sla_djcl.o sungcc/ubd128_sungcc.o sungcc/exstat.o sungcc/sc_rblk.o sungcc/coord_str.o sungcc/st_goodpsr.o sungcc/st_scfclose.o
-../../..//bin/sungcc/sc_td: $(sc_td.OBJS)

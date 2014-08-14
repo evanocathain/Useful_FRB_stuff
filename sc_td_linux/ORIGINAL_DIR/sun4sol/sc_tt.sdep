@@ -1,2 +1,0 @@
-sc_tt.OBJS := sun4sol/sct_sun4sol.o
-../../..//bin/sun4sol/sc_tt: $(sc_tt.OBJS)

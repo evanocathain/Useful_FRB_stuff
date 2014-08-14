@@ -1,0 +1,12 @@
+Evan Keane
+14/08/2014
+
+sp_searches.csh makes a fake filterbank file with a typical FRB pulse
+in it, then searches it with 4 different SP search codes as a function
+of boxcar phase. It does this for many different realisations.
+
+look_at_output.csh takes the output from sp_searches.csh and
+determines the average and rms deviations for each code for each
+phase.
+
+plot.gp plots the output from look_at_output.csh

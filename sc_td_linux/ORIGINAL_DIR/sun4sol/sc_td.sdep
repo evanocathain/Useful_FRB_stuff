@@ -1,2 +1,0 @@
-sc_td.OBJS := sun4sol/st_init.o sun4sol/st_inpar.o sun4sol/st_topen.o sun4sol/st_rdblk.o sun4sol/st_gethdr.o sun4sol/st_fopen.o sun4sol/st_trans.o sun4sol/st_fclose.o sun4sol/sct_sun4sol.o sun4sol/repair_hdr.o sun4sol/str_coord.o sun4sol/sla_djcl.o sun4sol/ubd128_sun4sol.o sun4sol/exstat.o sun4sol/sc_rblk.o sun4sol/coord_str.o sun4sol/st_goodpsr.o sun4sol/st_scfclose.o
-../../..//bin/sun4sol/sc_td: $(sc_td.OBJS)

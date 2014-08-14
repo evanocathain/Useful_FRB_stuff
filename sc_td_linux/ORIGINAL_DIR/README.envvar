@@ -1,9 +1,0 @@
-This version of sc_td supports a direct killing of the bad channels,
-on a tape by tape base. The related database is stored in the
-file "kill.chans" pointed by the env variable "tapeinfo". This
-must be set before running the program, and "kill.chans" imported
-when downloading the code.
-The automatic zapping can be disabled only using the option "-x" 
-in the command line of sc_td.
-
-

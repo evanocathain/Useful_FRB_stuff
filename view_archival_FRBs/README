@@ -1,10 +1,9 @@
 Evan Keane
 14/08/2014
 
-A script which will grab the FRBs from the raw data files (provided on
-Google Drive here:
-https://drive.google.com/folderview?id=0B0mwxKag3K-naUdXSHVRNElyZFk&usp=sharing
-NB This directory will be made public shortly)
+A script which will grab the FRBs from the raw data files, which are
+provided on Dropbox here:
+https://www.dropbox.com/sh/l6kr87oxsxpg367/AAAqdwv-ZdqQcMpXoZmfK0G3a
 
 Simply replace the directories where you have things and run:
 

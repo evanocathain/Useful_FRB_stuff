@@ -40,9 +40,10 @@ response.
 
 TBD
 
-8. sc_td_linux
+8. sc_td_linux.link
 
-A linux version of a code that converts "scamp" data format (archival
-Parkes surveys, especially those that used the analogue filterbanks)
-to sigproc "filterbank" format.
+A link to a github repository for a linux version of a code that
+converts "scamp" data format (archival Parkes surveys, especially
+those that used the analogue filterbanks) to sigproc "filterbank"
+format.
 

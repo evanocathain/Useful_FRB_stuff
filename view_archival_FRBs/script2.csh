@@ -28,7 +28,9 @@ foreach beam ( 1 2 3 4 5 6 7 8 9 A B C D )
     echo "Beam" $beam
     dspsr -cepoch start -S $skip -T $read -c $read -b $nsamps -D $dm -t 12 -O $beam $data_dir/$stem$beam"1.fil"
     paz -z "5 6 7 8 25 26 27 94 95" $beam".ar" -m
-    pdv -t -j "B 500" $beam".ar" | awk 'NR!=1{print $2,$3,$4}' > $beam".cube"
+    psredit $beam".ar" > $beam".head"
+    pdv -t -j "B 500" $beam".ar" | awk 'NR!=1{print $2,$3,$4}' > $beam".4ms.cube"
+    pdv -t $beam".ar" | awk 'NR!=1{print $2,$3,$4}' > $beam".raw.cube"
     pdv -t -j "D, F" $beam".ar" | awk 'NR!=1{print $4}' > $beam".txt"
     $destroy -ascii -dm $dm -n $nsamps $beam".txt"
     mv pulses.pls $beam".pls"

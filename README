@@ -5,7 +5,14 @@ analysis of single pulse searches and FRB data from radio telescopes.
 
 1. FAKE
 
-Can use the following to replace the existing files in a standard
+FAKE is a code which creates fake filterbank data. This enables you to
+make simulated datasets with specific types of signal in them (e.g. an
+FRB or a highly-accelerated binary pulsar) so that you can test your
+detection software.
+
+Sigproc comes with a version of FAKE already included but this is a
+modified version which you should use if you are simulating FRB
+signals. You can use this to replace the existing files in a standard
 psrsoft (see http://www.pulsarastronomy.net/wiki/Software/PSRSoft)
 installation of sigproc
 

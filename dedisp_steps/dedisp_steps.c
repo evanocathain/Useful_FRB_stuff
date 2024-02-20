@@ -25,22 +25,26 @@ int main(int argc, char **argv)
   }
 
   // Set Defaults
-
-  // HTRU-S
-  tint = 40.0; // in us
-  tscatt = 1000.0; // in us
+  // These are the parameters of HTRU-S
+  tint = 40.0;       // in microsec
+  tscatt = 1000.0;   // in microsec
   tscatt = 0.0;
-  tsamp = 64.0; // in us
-  fcent = 1.382;    // in GHz
-  foff = 0.390625;  // in MHz
+  tsamp = 64.0;      // in microsec
+  fcent = 1.382;     // in GHz
+  foff = 0.390625;   // in MHz
   
   beta=tscatt*tscatt + tsamp*tsamp + tint*tint;
-  // Lina's Algorithm
 
-  //  tdm = 8.3*foff*DM/(fcent*fcent*fcent);
-  //  tDdm = tdm*
-
-  //  weff = sqrt( tscatt*tscatt + tsamp*tsamp + tint*tint + tdm*tdm + tDdm*tDdm );
+  /*  
+   *  Lina's Algorithm
+   *
+   *  Lina's thesis can be found here: 
+   *
+   *  https://researchbank.swinburne.edu.au/items/7cc421b6-b7f3-45e2-8832-36f0155ba2b1/1/?search=%2Fsearching.do&index=0&available=50
+   *	
+   *  tdm = 8.3*foff*DM/(fcent*fcent*fcent);
+   *  tDdm = tdm*
+   */
 
   dm = 0.0;
   i = 0;
@@ -49,8 +53,6 @@ int main(int argc, char **argv)
   int nsteps=50;
   //printf("%d %lf\n", i, dm);
   double dm_cm=0.0, dm_lina=0.0;
-  //  printf("%d %lf %lf %lf\n", i, dm, dm_lina);
-  //  printf("%d %lf\n", i, dm);
   while (dm < dm_max){
 
     // CM Way
@@ -80,7 +82,6 @@ int main(int argc, char **argv)
     //dm = pow(nchans,2.0)*alpha*dm + sqrt( 16*alpha*(pow(tol,2.0) - pow(nchans,2.0)*alpha)*pow(dm,2.0) + 16*alpha*beta*(pow(tol,2.0) - 1)*pow((pow(fcent,3.0)/(8.3*foff)),2.0) );
 
     // Print out DM vals
-    //    printf("%d %lf %lf %lf\n", i, dm, dm_lina);
     if (just_dms == 1){
       printf("%d %lf\n", i, dm);
     }

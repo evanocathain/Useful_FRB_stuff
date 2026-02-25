@@ -1,3 +1,10 @@
 *~
 dedisp_steps/dedisp_steps
+dedisp_steps/dedisp_steps_new
 dedisp_steps/*.o
+dedisp_steps/*.ps
+dedisp_steps/*.pdf
+dedisp_steps/fit.log
+dedisp_steps/evan*
+dedisp_steps/lina*
+

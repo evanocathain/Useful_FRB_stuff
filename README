@@ -39,9 +39,12 @@ various different useful formats.
 
 6. dedisp_steps
 
-A code which outputs the DM steps from the algorithm of Levin 2011,
+A code which outputs the DM steps from the algorithm of Levin 2012,
 and as used by heimdall. It also outputs info. on the scalloped DM
-response.
+response. It also compares the dmtol you need to ask heimdall for a
+desired dmtol, i.e. it works out the 'hack' you need to get the right
+DM trials for your desired search without changing the widespread and
+already-used-everywhere code.
 
 7. destroy_gutted.link
 
